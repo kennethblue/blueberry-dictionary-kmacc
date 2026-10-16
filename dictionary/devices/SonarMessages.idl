@@ -28,10 +28,12 @@ module ::Blueberry::Devices {
 	enum AScanType : uint8 {
 		UNDEFINED = 0,
 		RAW_RF = 1,//the data is raw voltage measurements
-		IQ_DEMOD = 2, // IQ demodulated
-		RECTIFIER_DEMOD = 3, //simple rectifier demodulation
-		MIN_MAX = 4, //rectifier demod plus indicates if datapoint was saturated high, low or both
-		RAW_CURRENT = 5 //raw current measurement, for transducer characterization
+		IQ_DEMOD = 2,
+		RECTIFIER_DEMOD = 3,
+		MIN_MAX = 4,//rectifier demod plus indicates if datapoint was saturated high, low or both
+		CURRENT = 5,//does a single frequency current measurement and puts result in app data
+		CURRENT_SWEEP = 6,//sweep of current over frequency
+		RAW_CURRENT = 7 //raw current measurement, for transducer characterization
 	};
 	
 	
@@ -54,6 +56,7 @@ module ::Blueberry::Devices {
 		float sampleRate;//the sample rate reported from the data source
 		FloatSequence data;
 		AScanType type;
+		float start;//the x-offset of the first value. This could be in units of time or frequency, depending on type.
 	};
 	
 	
