@@ -35,7 +35,8 @@ module ::Blueberry::Devices {
 		CURRENT_SWEEP = 6,//sweep of current over frequency
 		RAW_CURRENT = 7, //raw current measurement, for transducer characterization
 		CODED = 8, //coded pulses
-		CODED_IQ = 9 //coded pulses with IQ result
+		CODED_IQ = 9, //coded pulses with IQ result
+		CODED_RAW = 10
 	};
 	
 	
